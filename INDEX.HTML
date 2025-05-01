@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAME LOGIN PAGE</title>
+    <link rel="stylesheet" href="STYLE.CSS">
+    <link rel="icon" type="image/x-icon" href="https://th.bing.com/th/id/OIP.hW0kIkzJ3uHSAqhaIIlH3wHaHa?w=191&h=191&c=7&r=0&o=5&dpr=1.5&pid=1.7">
+    
+</head>
+<body>
+    <div>
+    <aside="right">
+        <img src="https://th.bing.com/th/id/OIP.64MqZZrOP_kXxE9p3XYObwAAAA?w=223&h=141&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Logo">
+    </aside></div>
+
+    
+    <div class="login-container">
+        <h2>ENTER YOUR NAME TO PLAY THE GAME</h2>
+        <input type="text" id="username" placeholder="Enter Your Name" />
+        
+
+        <h2>NO. OF ROUNDS</h2>
+        <select id="rounds">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+        </select>
+       <a href="../FINALFEEPROJECT/jsproject2/index.html"> <button onclick="startGame()">Play</button></a>
+        <div class="music-toggle">
+            <input type="checkbox" id="music" checked />
+            <audio controls>
+                <source src="/power-is-you-248869.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+
+    
+    <script src="APP.JS"></script>
+
+</body>
+</html>
