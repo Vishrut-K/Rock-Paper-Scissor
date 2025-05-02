@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAME LOGIN PAGE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="https://th.bing.com/th/id/OIP.hW0kIkzJ3uHSAqhaIIlH3wHaHa?w=191&h=191&c=7&r=0&o=5&dpr=1.5&pid=1.7">
+</head>
+<body>
+    <div class="login-container">
+        <h1>WELCOME TO ROCK PAPER SCISSORS</h1>
+        <h2>Enter Your Name</h2>
+        <input type="text" id="username" placeholder="Enter Your Name" />
+        
+        <h2>Number of Rounds</h2>
+        <select id="rounds">
+            <option value="5">5 (Best of 5)</option>
+            <option value="10">10 (Best of 10)</option>
+        </select>
+
+        <h2>Background Music</h2>
+        <select id="music-option">
+            <option value="">None</option>
+            <option value="bg-music1.mp3">Epic Theme</option>
+            <option value="bg-music2.mp3">Retro Theme</option>
+            <option value="bg-music3.mp3">Relaxed Theme</option>
+        </select>
+        
+        <!-- Music Play Button -->
+        <button class="music-button" onclick="toggleMusic()">▶ Play Music</button>
+
+        <!-- Game Start Button -->
+        <button class="play-button" onclick="startGame()">⏩ Start Game</button>
+    </div>
+
+    <!-- Hidden Audio Element -->
+    <audio id="background-audio" loop>
+        <source id="audio-source" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <script src="app.js"></script>
+</body>
+</html>

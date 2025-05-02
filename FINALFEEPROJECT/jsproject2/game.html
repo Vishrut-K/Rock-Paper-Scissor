@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="https://th.bing.com/th/id/OIP.hW0kIkzJ3uHSAqhaIIlH3wHaHa?w=191&h=191&c=7&r=0&o=5&dpr=1.5&pid=1.7">
+</head>
+<body>
+    
+    <h1>ROCK PAPER SCISSORS</h1>
+    <div class="choices">
+        <div class="choice" id="rock">
+            <img src="rock.jpg" alt="Rock">
+        </div>
+        <div class="choice" id="paper">
+            <img src="paper.jpg" alt="Paper">
+        </div>
+        <div class="choice" id="scissors">
+            <img src="scissors.jpg" alt="Scissors">
+        </div>
+    </div>
+    <div class="score-board">
+        <div class="score">
+            <p id="user-score">0</p>
+            <p>You</p>
+        </div>
+        <div class="score">
+            <p id="comp-score">0</p>
+            <p>Comp</p>
+        </div>
+    </div>
+
+    <!-- Audio Control -->
+    <div class="audio-control">
+        <label>
+            <input type="checkbox" id="audio-toggle" checked> Play Background Music
+        </label>
+    </div>
+
+    <audio id="background-audio" loop autoplay>
+        <source src="./lady-of-the-80x27s-128379.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="msg-container">
+        <p id="msg">Play your move</p>
+    </div>
+
+    <div id="game-end-container" style="display: none;">
+        <h2 id="final-winner-msg"></h2>
+        <button class="play-again-button" onclick="restartGame()">⟲ Play Again</button>
+    </div>
+    
+    <script src="app.js"></script>
+
+    <script>
+        // JavaScript to control the audio
+        const audioToggle = document.getElementById('audio-toggle');
+        const backgroundAudio = document.getElementById('background-audio');
+
+        audioToggle.addEventListener('change', () => {
+            if (audioToggle.checked) {
+                backgroundAudio.play();
+            } else {
+                backgroundAudio.pause();
+            }
+        });
+
+        // Ensure the audio starts playing if checkbox is initially checked
+        if (audioToggle.checked) {
+            backgroundAudio.play();
+        }
+
+        let userScore = 0;
+let compScore = 0;
+let roundsPlayed = 0;
+
+const totalRounds = parseInt(localStorage.getItem('rounds')) || 5;
+const username = localStorage.getItem('username') || "Player";
+const selectedMusic = localStorage.getItem('music-option') || "bg-music1.mp3";
+
+const audio = new Audio(selectedMusic);
+audio.loop = true;
+audio.play();
+
+document.querySelector("h1").innerText = `Welcome, ${username}! Rock Paper Scissors`;
+
+const endGame = () => {
+    document.getElementById("game-end-container").style.display = "block";
+    document.getElementById("final-winner-msg").innerText = userScore > compScore
+        ? `${username} wins! Final Score: ${userScore} - ${compScore}`
+        : userScore < compScore
+        ? `Computer wins! Final Score: ${compScore} - ${userScore}`
+        : `It's a tie! Final Score: ${userScore} - ${compScore}`;
+};
+
+const restartGame = () => {
+    localStorage.clear();
+    window.location.href = "index.html"; // Redirect to the first screen
+};
+
+    </script>
+
+</body>
+</html>
