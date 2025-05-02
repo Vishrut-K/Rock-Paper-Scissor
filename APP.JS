@@ -1,40 +1,40 @@
-function startGame() {
-    const username = document.getElementById('username').value;
-    const rounds = document.getElementById('rounds').value;
-    const music = document.getElementById('music').checked ? 'On' : 'Off';
-    const theme = document.getElementById('theme').value;
-  
-    if (username) {
-      // Consider using a server-side script to handle theme selection
-      // This example uses a hypothetical function "setTheme"
-      setTheme(theme);
-  
-      alert(`Starting game for ${username} with ${rounds} rounds. Music is ${music}. Theme is ${theme}`);
+let isMusicPlaying = false;
+
+function toggleMusic() {
+    const musicSelect = document.getElementById("music-option").value;
+    const audioElement = document.getElementById("background-audio");
+    const audioSource = document.getElementById("audio-source");
+    const musicButton = document.querySelector(".music-button");
+
+    if (musicSelect) {
+        audioSource.src = musicSelect;
+        audioElement.load();
+
+        if (!isMusicPlaying) {
+            audioElement.play();
+            isMusicPlaying = true;
+            musicButton.innerText = "⏸ Pause Music";
+        } else {
+            audioElement.pause();
+            isMusicPlaying = false;
+            musicButton.innerText = "▶ Play Music";
+        }
     } else {
-      alert('Please enter your name.');
+        alert("Please select a music track before playing.");
     }
-  }
-  
-  // This is a hypothetical function, replace with your actual theme handling logic
-  function setTheme(theme) {
-    let backgroundImage;
-    switch (theme) {
-      case 'forest':
-        backgroundImage = 'url(/forest.jpg)';
-        break;
-      case 'sea':
-        backgroundImage = 'url(/sea.jpg)';
-        break;
-      default:
-        backgroundImage = 'none';
+}
+
+function startGame() {
+    const username = document.getElementById("username").value;
+    const rounds = document.getElementById("rounds").value;
+    const selectedMusic = document.getElementById("music-option").value;
+
+    if (username.trim()) {
+        localStorage.setItem("username", username);
+        localStorage.setItem("rounds", rounds);
+        localStorage.setItem("music-option", selectedMusic);
+        window.location.href = "game.html"; // Redirect to the game page
+    } else {
+        alert("Please enter your name before starting the game.");
     }
-    document.body.style.backgroundImage = backgroundImage;
-  }
-  // Replace with your actual ad network's script and configuration
-function loadAds() {
-    // Example using Google AdSense
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  }
-  
-  // Call the loadAds function on page load
-  window.onload = loadAds;
+}
