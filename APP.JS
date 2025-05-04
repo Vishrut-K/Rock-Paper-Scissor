@@ -6,6 +6,7 @@ function toggleMusic() {
     const audioSource = document.getElementById("audio-source");
     const musicButton = document.querySelector(".music-button");
 
+
     if (musicSelect) {
         audioSource.src = musicSelect;
         audioElement.load();
@@ -29,6 +30,8 @@ function startGame() {
     const rounds = document.getElementById('rounds').value;
     const music = document.getElementById('music').checked ? 'On' : 'Off';
     const theme = document.getElementById('theme').value;
+
+    console.log(`Starting game with username: ${username}, rounds: ${rounds}, music: ${music}, theme: ${theme}`);
 
     if (username.trim()) {
         localStorage.setItem("username", username);
