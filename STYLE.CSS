@@ -23,6 +23,7 @@ body {
     height: 60vh;
     position: fixed;
     box-shadow: 2px 2px 2px black;
+    transition: all 0.3s ease;
     }
 
 h2 {
