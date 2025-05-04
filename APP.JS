@@ -47,3 +47,14 @@ function startGame() {
       alert('Please enter your name.');
     }
   }
+  function saveUserPreferences(username, rounds, music, theme) {
+    // Check if localStorage is available
+    if (typeof(Storage) !== "undefined") {
+      localStorage.setItem("gameUsername", username);
+      localStorage.setItem("gameRounds", rounds);
+      localStorage.setItem("gameMusic", music);
+      localStorage.setItem("gameTheme", theme);
+      
+      console.log("User preferences saved");
+    }
+  }
