@@ -73,3 +73,9 @@ function startGame() {
     document.body.style.backgroundImage = backgroundImage;
     document.body.className = `theme-${theme}`;
   }
+    document.getElementById('theme').addEventListener('change', function() {
+      setTheme(this.value);
+    });
+    
+    console.log("Page initialized");
+  }
