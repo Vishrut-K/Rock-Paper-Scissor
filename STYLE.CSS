@@ -95,5 +95,8 @@ input:focus,select:focus{
     width: 80vw;
   }
 }
+#future-features {
+  margin-top: 10px;
+}
 
 
