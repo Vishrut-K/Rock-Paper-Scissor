@@ -58,3 +58,16 @@ function startGame() {
       console.log("User preferences saved");
     }
   }
+  function setTheme(theme) {
+    let backgroundImage;
+    switch (theme) {
+      case 'forest':
+        backgroundImage = 'url(/forest.jpg)';
+        break;
+      case 'sea':
+        backgroundImage = 'url(/sea.jpg)';
+        break;
+      default:
+        backgroundImage = 'none';
+    }
+    document.body.style.backgroundImage = backgroundImage;
