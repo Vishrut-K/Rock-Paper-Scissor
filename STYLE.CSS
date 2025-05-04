@@ -98,5 +98,10 @@ input:focus,select:focus{
 #future-features {
   margin-top: 10px;
 }
+@media print {
+  .login-container {
+    box-shadow: none;
+  }
+}
 
 
