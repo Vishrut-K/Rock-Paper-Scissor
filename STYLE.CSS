@@ -46,6 +46,9 @@ input[type="text"] {
     position: relative;
     right: 10px;
     text-align: center;
+    ::placeholder {
+      color: #999;
+    }
 }
 .login-container{
     color: aqua;
