@@ -42,3 +42,8 @@ function startGame() {
         alert("Please enter your name before starting the game.");
     }
 }
+      saveUserPreferences(username, rounds, music, theme);
+    } else {
+      alert('Please enter your name.');
+    }
+  }
