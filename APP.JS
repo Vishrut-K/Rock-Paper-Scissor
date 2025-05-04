@@ -25,9 +25,10 @@ function toggleMusic() {
 }
 
 function startGame() {
-    const username = document.getElementById("username").value;
-    const rounds = document.getElementById("rounds").value;
-    const selectedMusic = document.getElementById("music-option").value;
+    const username = document.getElementById('username').value;
+    const rounds = document.getElementById('rounds').value;
+    const music = document.getElementById('music').checked ? 'On' : 'Off';
+    const theme = document.getElementById('theme').value;
 
     if (username.trim()) {
         localStorage.setItem("username", username);
