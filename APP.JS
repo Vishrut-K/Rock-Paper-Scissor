@@ -71,3 +71,5 @@ function startGame() {
         backgroundImage = 'none';
     }
     document.body.style.backgroundImage = backgroundImage;
+    document.body.className = `theme-${theme}`;
+  }
